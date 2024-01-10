@@ -1,0 +1,64 @@
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #01377D;
+    color: var(--font-color-dark-bg);
+    font-size: 32px;
+    padding: 15px 20px;
+    margin: 0;
+    
+  }
+  
+  .logo {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    height: 65px;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 20px;
+    margin: 0 auto;
+    max-width: 1280px;
+    min-width: 650px;
+  }
+  
+  .profile {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+  }
+  .left {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+  }
+  
+  .left * {
+    margin-right: 25px;
+  }
+  
+ 
+  .right {
+    display: flex;
+    align-items: center;
+    margin-right:0;
+    margin-left: auto;
+    text-align: right;
+  }
+  
+  .right * {
+    margin-left: 25px;
+  }
+  .right img {
+    height: 40px;
+    cursor: pointer;
+  }
+
+  
+
+ 
+  
+ 

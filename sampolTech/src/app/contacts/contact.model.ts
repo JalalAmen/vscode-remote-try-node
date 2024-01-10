@@ -1,16 +1,21 @@
 export interface Contact {
     id: string,
+    icon:string,
+    personalContact:boolean,
     firstName: string,
     lastName: string,
     dateOfBirth: Date | null,
     favoritesRanking: number | null,
-    phone: Phone,
+    phones: Phone[],
     address: Address,
+    notes:string,
   }
+
   
   export interface Phone {
     phoneNumber: string,
     phoneType: string,
+    preferred: boolean,
   }
   
   export interface Address {
@@ -20,3 +25,22 @@ export interface Contact {
     postalCode: string,
     addressType: string,
   }
+  export interface AuthenticationDetails {
+    id:string;
+    email: string;
+    password: string;
+  }
+  export const PhoneTypeValues = [
+
+    {title: 'Mobile', value: 'mobile'},
+    {title: 'Work', value: 'work'},
+    {title: 'Others', value: 'others'}
+
+  ];
+  export const AddressTypeValues =[
+
+    {title: 'Home', value: 'home'},
+    {title: 'Work', value: 'work'},
+    {title: 'Others', value: 'others'}
+
+  ]
