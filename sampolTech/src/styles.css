@@ -132,3 +132,7 @@
     margin: 0;
     padding: 0;
   }
+  a {
+  color: #fcfcfc;
+  text-decoration: none;
+}

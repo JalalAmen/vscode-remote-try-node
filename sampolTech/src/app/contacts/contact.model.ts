@@ -25,8 +25,9 @@ export interface Contact {
     postalCode: string,
     addressType: string,
   }
-  export interface AuthenticationDetails {
-    id:string;
+  export interface Authentications {
+    id:number ;
+    profileId:string;
     email: string;
     password: string;
   }
@@ -44,3 +45,8 @@ export interface Contact {
     {title: 'Others', value: 'others'}
 
   ]
+  export interface IUserCredentials {
+    email: string;
+    password: string;
+  }
+  

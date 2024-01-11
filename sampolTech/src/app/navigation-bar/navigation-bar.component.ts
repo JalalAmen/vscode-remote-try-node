@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './navigation-bar.component.css'
 })
 export class NavigationBarComponent {
-
+  isLogInPage:boolean= false;
+  isRegisterPage:boolean=false;
+  
 }

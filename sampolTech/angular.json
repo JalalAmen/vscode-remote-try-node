@@ -70,7 +70,8 @@
               "buildTarget": "sampolTech:build:production"
             },
             "development": {
-              "buildTarget": "sampolTech:build:development"
+              "buildTarget": "sampolTech:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

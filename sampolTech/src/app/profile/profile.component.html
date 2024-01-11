@@ -1,0 +1,33 @@
+<!-- profile.component.html -->
+
+<div *ngIf="(profileForm.valueChanges | async) as profileData" class="profile-container">
+  <div class="profile-header">
+    <img [src]="profileData.icon" class="profile-icon">
+    <h2>{{ profileData.firstName }} {{ profileData.lastName }}</h2>
+    <p *ngIf="profileData.dateOfBirth">Date of Birth: {{ profileData.dateOfBirth | date }}</p>
+    <p *ngIf="profileData.favoritesRanking">Favorites Ranking: {{ profileData.favoritesRanking }}</p>
+  </div>
+
+  <div class="contact-details">
+    <h3>Contact Information</h3>
+    <ul>
+      <li *ngIf="profileData.personalContact">Personal Contact</li>
+      <li>ID: {{ profileData.id }}</li>
+      <li *ngFor="let phone of profileData.phones">
+        {{ phone.preferred ? 'Preferred ' : '' }}{{ phone.phoneType }}: {{ phone.phoneNumber }}
+      </li>
+      <li>Notes: {{ profileData.notes }}</li>
+    </ul>
+  </div>
+
+  <div class="address-details">
+    <h3>Address Information</h3>
+    <p>{{ profileData.address.addressType }} Address:</p>
+    <p>
+      <label>Street Address: </label>{{ profileData.address.streetAddress }}
+      <label>City: </label>{{ profileData.address.city }}
+      <label>State: </label>{{ profileData.address.state }}
+      <label>Postal Code: </label>{{ profileData.address.postalCode }}
+    </p>
+  </div>
+</div>

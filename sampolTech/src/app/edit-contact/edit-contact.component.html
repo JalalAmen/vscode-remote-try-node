@@ -40,7 +40,7 @@
         <nav>Phones</nav>
         <div formArrayName="phones" >
           <div  *ngFor="let phone of contactForm.controls.phones.controls; let i = index" [formGroupName]="i" class="flex-column">
-            <em *ngIf="phone.controls.phoneNumber.invalid"> Preffered Phone is required</em>
+            <em *ngIf="phone.controls.phoneNumber.invalid"> Preferred Phone is required</em>
             <div class="flex-group">
               
               <input formControlName= "phoneNumber" placeholder="Phone" />
@@ -54,7 +54,7 @@
              
           </div>
           <div>
-            <span><input type="checkbox" formControlName="preferred" > Preffered</span>
+            <span><input type="checkbox" formControlName="preferred" > Preferred</span>
           </div>
           </div>
         </div>

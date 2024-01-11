@@ -6,13 +6,13 @@ export class InMemoryContactsApi implements InMemoryDbService {
     let contacts: Contact[] = [
       {
         id: '5CehW',
-        icon: 'person-05.png',
+        icon: '',
         personalContact: false,
         firstName: 'Percival',
         lastName: 'Doodleplumb',
         dateOfBirth: new Date('1994/05/05'),
         favoritesRanking: 0,
-        phones: [{ phoneNumber: '555-765-4321', phoneType: 'mobile', preferred:false }],
+        phones: [{ phoneNumber: '555-765-4321', phoneType: 'mobile', preferred: false }],
         address: {
           streetAddress: '777 Whimsy Lane',
           city: 'Gleeberg City',
@@ -20,18 +20,17 @@ export class InMemoryContactsApi implements InMemoryDbService {
           postalCode: 'A4321',
           addressType: 'home'
         },
-        notes: '',
-        
+        notes: ''
       },
       {
         id: 'A6rwe',
-        icon: 'person-14.png',
+        icon: '',
         personalContact: false,
         firstName: 'Mortimer',
         lastName: 'Flungford',
         dateOfBirth: new Date('1988/10/05'),
         favoritesRanking: 0,
-        phones: [{ phoneNumber: '555-877-5678', phoneType: 'mobile', preferred:false }],
+        phones: [{ phoneNumber: '555-877-5678', phoneType: 'mobile', preferred: false }],
         address: {
           streetAddress: '543 Lullaby Lane',
           city: 'Sleepytown',
@@ -39,8 +38,7 @@ export class InMemoryContactsApi implements InMemoryDbService {
           postalCode: 'F2231',
           addressType: 'other'
         },
-        notes: '',
-       
+        notes: ''
       },
       {
         id: '3bNGA',
@@ -51,7 +49,8 @@ export class InMemoryContactsApi implements InMemoryDbService {
         dateOfBirth: new Date('1986/11/08'),
         favoritesRanking: 1,
         phones: [
-          { phoneNumber: '555-123-4567', phoneType: 'mobile', preferred:false }
+          { phoneNumber: '555-123-4567', phoneType: 'mobile', preferred: false },
+          { phoneNumber: '555-321-7890', phoneType: 'work', preferred: false }
         ],
         address: {
           streetAddress: '123 Merriment Avenue',
@@ -60,8 +59,7 @@ export class InMemoryContactsApi implements InMemoryDbService {
           postalCode: 'Z2345',
           addressType: 'work'
         },
-        notes: '',
-       
+        notes: ''
       },
     ]
 
