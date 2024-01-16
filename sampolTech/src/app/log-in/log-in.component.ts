@@ -26,10 +26,10 @@ export class LogInComponent implements OnInit{
       })
   }
   
-  signIn() {
+  logIn() {
     this.signInError = false;
     
-    this.logInService.signIn(this.logInForm.value).subscribe({
+    this.logInService.logIn(this.logInForm.value).subscribe({
       next: () => this.router.navigate(['/profile']),
       error: () => (this.signInError = true),
     });

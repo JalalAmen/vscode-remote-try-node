@@ -1,14 +1,67 @@
-import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { Contact } from './contact.model';
+import { InMemoryDbService, RequestInfoUtilities, STATUS } from 'angular-in-memory-web-api';
+import { Authentications, Contact, IUserCredentials } from './contact.model';
+import { throwError } from 'rxjs';
 
 export class InMemoryContactsApi implements InMemoryDbService {
+
+ 
+  
+  private requestUtils!: RequestInfoUtilities;
+  private utils: RequestInfoUtilities = this.requestUtils;
+  
+  
+  
+    
+ 
+
+  responseInterceptor(responseOptions: any, requestInfo: any): any {
+    
+    if (this.utils.getJsonBody(requestInfo.req) && requestInfo.url.includes('users') && requestInfo.req.method === 'POST') {
+      const credentials: IUserCredentials = this.utils.getJsonBody(requestInfo.req);
+
+      const user = this.authenticate(credentials);
+
+      if (user) {
+        return this.utils.createResponse$(() => ({
+          body: user,
+          status: responseOptions.status
+        }));
+      } else {
+        return throwError({ status: 401, statusText: 'Unauthorized' });
+      }
+    }
+
+    return responseOptions;
+  }
+
+  private authenticate(credentials: IUserCredentials): Authentications | null {
+    // Simulate authentication logic using your own data
+    // For example, check if the credentials match a user in your in-memory array
+    const users: Authentications[] = [
+      {
+        id: 1,
+        profileId: '5CehW',
+        email: 'dpercival@yahoo.com',
+        password: 'percival1234',
+      },
+      {
+        id: 2,
+        profileId: 'A6rwe',
+        email: 'fmortimer@yahoo.com',
+        password: 'mortimer1234',
+      }
+    ];
+
+    return users.find(user => user.email === credentials.email && user.password === credentials.password) || null;
+  }
+
   createDb() {
     let contacts: Contact[] = [
       {
         id: '5CehW',
         icon: '',
         personalContact: false,
-        firstName: 'Percival',
+        firstName: 'Percival', 
         lastName: 'Doodleplumb',
         dateOfBirth: new Date('1994/05/05'),
         favoritesRanking: 0,
@@ -62,7 +115,8 @@ export class InMemoryContactsApi implements InMemoryDbService {
         notes: ''
       },
     ]
-
+    
+    
     return { contacts }
   }
 }

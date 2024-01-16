@@ -46,6 +46,7 @@ export interface Contact {
 
   ]
   export interface IUserCredentials {
+    
     email: string;
     password: string;
   }

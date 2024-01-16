@@ -18,7 +18,7 @@ export class LogInService {
 
   getUserProfile(): Observable<Contact | null> {
     const userProfile = this.profile ?? { id: '', icon: '', personalContact: false, firstName: '', lastName: '', dateOfBirth: null, favoritesRanking: null, phones: [], address: { streetAddress: '', city: '', state: '', postalCode: '', addressType: '' }, notes: '' };
-    console.log(this.user.value);
+    
     if (this.user.value) {
       userProfile.id = String(this.user.value.profileId);
       return new Observable<Contact | null>(observer => {
@@ -34,13 +34,13 @@ export class LogInService {
       });
     }
   }
-  signIn(credentials: IUserCredentials): Observable<Authentications> {
+  logIn(credentials: IUserCredentials): Observable<Authentications> {
     
     
     return this.http
-      .post<Authentications>('/api/sign-in', credentials)
-      .pipe(map((user: Authentications) => {
-        console.log(user)
+      .post<Authentications>('api/users', credentials)
+      .pipe(tap(user=>console.log(user)),map((user: Authentications) => {
+      
         this.user.next(user);
         return user;
       }));
